@@ -1,0 +1,35 @@
+Options +FollowSymlinks
+# Prevent Directoy listing 
+Options -Indexes
+# Prevent Direct Access to files
+<FilesMatch "\.(tpl|ini|log)">
+ Order deny,allow
+ Deny from all
+</FilesMatch>
+
+# SEO URL Settings
+RewriteEngine On
+# If your opencart installation does not run on the main web folder make sure you folder it does run in ie. / becomes /shop/ 
+
+RewriteBase /
+RewriteRule ^sitemap.xml$ index.php?route=feed/google_sitemap [L]
+RewriteRule ^googlebase.xml$ index.php?route=feed/google_base [L]
+RewriteRule ^yml.xml$ index.php?route=feed/yandex_market [L]
+RewriteRule ^download/(.*) /index.php?route=error/not_found [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
+RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]
+
+RewriteCond %{HTTP_HOST} ^www\.angel-moda\.com$ [NC]
+RewriteRule ^(.*)$ http://angel-moda.com/$1 [R=301,L]
+
+redirect 301 /zhenshinam/odezhda-1/ http://angel-moda.com/zhenshinam/zhenskaya-odezhda/
+redirect 301 /zhenshinam/aksessuary-1/ http://angel-moda.com/zhenshinam/zhenskie-aksessuary/
+redirect 301 /zhenshinam/obuv-1/ http://angel-moda.com/zhenshinam/zhenskaya-obuv/
+redirect 301 /muzhchinam/aksessuary/ http://angel-moda.com/muzhchinam/muzhskie-aksessuary/
+redirect 301 /muzhchinam/odezhda/ http://angel-moda.com/muzhchinam/muzhskaya-odezhda/
+redirect 301  http://angel-moda.com/blogs/individualnye-shop-tury-po-italii http://angel-moda.com/shop-tours/
+
+RewriteCond %{QUERY_STRING} ^route=pavblog/blog&id=30$
+RewriteRule ^index.php$ http://angel-moda.com/shop-tours? [R=301,L]

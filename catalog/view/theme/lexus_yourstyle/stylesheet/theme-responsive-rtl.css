@@ -1,0 +1,12 @@
+@media (min-width: 992px) and (max-width: 1199px) {
+  .btn-group .dropdown-toggle span {
+    float: right;
+  }
+}
+@media (max-width: 767px) {
+  .box-products .product-block .product-meta,
+  .product-related .product-block .product-meta,
+  .product-grid .product-block .product-meta {
+    text-align: right;
+  }
+}

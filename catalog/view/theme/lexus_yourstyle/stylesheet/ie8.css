@@ -1,0 +1,29 @@
+#pav-mainnav {
+	background: #5e5b5b;
+}
+.pav-slideshow {
+	margin-top: 0;
+}
+.product-block .compare a, .product-block .wishlist a, .button, input.button, .btn-theme-primary, 
+.product-block .product-quickview .pav-colorbox, .product-block .shopping-cart a {
+	border: 2px solid #969290;
+}
+.product-filter label:after, .product-filter label:before {
+	display: none;
+}
+.sidebar .box .box-content .box-category li {
+    border-bottom: 1px solid #4c4c4c;
+}
+.sidebar .box .box-content .box-category li ul li {
+	border-top: 1px solid #4c4c4c;
+}
+#pav-mainnav .navbar ul.nav > li > .dropdown-menu {
+	display: none;
+	visibility: visible;
+	opacity: inherit;
+}
+#pav-mainnav .navbar ul.nav > li:hover > .dropdown-menu {
+	display: block;
+	visibility: visible;
+	opacity: inherit;
+}

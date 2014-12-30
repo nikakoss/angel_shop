@@ -1,0 +1,198 @@
+
+/******************************************************
+ * @package Pav Opencart Theme Framework for Opencart 1.5.x
+ * @version 1.1
+ * @author http://www.pavothemes.com
+ * @copyright	Copyright (C) Augus 2013 PavoThemes.com <@emai:pavothemes@gmail.com>.All rights reserved.
+ * @license		GNU General Public License version 2
+*******************************************************/
+.nav > li > a {
+	padding: 15px 12px;
+}
+#pav-mainnav {
+	 position:relative;
+	 .dropdown{
+		&:hover {
+			> .dropdown-menu{
+				display: block;
+				border-bottom-left-radius: 0;
+    			border-bottom-right-radius: 0;
+			}
+	
+		}
+
+	}
+	.navbar {
+		border: none;
+		.multi-menu .dropdown-menu{
+			left: -194px;
+		}
+		.navbar-collapse {
+			 padding-left: 0;
+			 padding-right: 0;
+		}
+		ul.nav{
+			& > li {
+				& > .dropdown-menu{
+					.transition(all 0.3s ease 0s);
+					margin-top: 30px;
+					.opacity(0);
+					visibility: hidden;
+					display: block;
+					& div > iframe{
+						display: none;
+					}
+				}
+				&:hover {
+					.dropdown-menu{
+						.transition(all 0.3s ease 0s);
+						margin-top: 0px;
+						.opacity(1);
+						visibility: visible;
+						& div > iframe{
+						display: block;
+					}
+						
+					}
+				}
+			}
+			 &  > li:hover > a,.caret {
+				background: none;
+               color: @theme-color-default;
+				&:before {
+				   width: 100%;
+				    .opacity(1);
+				}
+			}
+		 	& > li  > a {
+				text-transform: uppercase;
+				font-size:@font-size-base;
+				font-weight: bold;
+				z-index: 0;
+				overflow: hidden;
+				.caret {
+					width: 8px;
+					height: 10px;
+					border: 0;
+        			background: url('@{image-theme-path}caret-bg.png') no-repeat top center;
+        			margin-left: 4px;
+				}
+				&:hover , &:focus {
+					.caret {
+						background-position: bottom;
+					}
+				}
+				&:before {
+				   height: 100%;
+				    left: 50%;
+				    .opacity(0);
+				    top: 50%;
+				    .translate(-50%; -50%);
+				    width: 0;
+				    content: "";
+				    position: absolute;
+				    .transition(all 0.3s ease 0s);
+				    z-index: -1;
+				}
+		 	}
+		}
+	 }
+
+	.dropdown-menu li a {
+		background: url('@{image-theme-path}circle-li.png') no-repeat scroll left 5px;
+		&:hover {
+			color: @theme-color-default;
+			span {
+				color: @theme-color-default;
+			}
+			.caret {
+				border-top-color: @theme-color-default;
+				border-bottom-color: @theme-color-default;
+			}
+		}
+	}
+	 .navbar-inverse .navbar-nav {
+	    > .open{
+		    	> a {
+		    	background-color: @theme-color-secondary;
+
+			}
+	    }
+	}
+}
+
+
+.pav-megamenu {
+	.dropdown-menu {
+		background: #3a3a3a;
+		color: #b1b1b1;
+		border-top: 1px solid @theme-color-default;
+		& > .dropdown-menu-inner {
+			padding: 10px;
+			.widget-product-list .name a:hover {
+			  	color: @theme-color-default;
+			}
+		}
+	}
+	.mega-group {
+		.caret{
+			display: none;
+		}
+		& > .dropdown-toggle {
+			display: block;
+			font-weight: bold;
+			padding: 6px 5px;
+			text-transform: uppercase;
+			border-bottom: solid 1px @legend-border-color
+		}
+
+		.dropdown-mega {
+			 .mega-col-inner {
+				& > ul > li  {
+					a {
+						margin-left: 6px;
+					}
+				}
+			}
+		}
+	}
+	.mega-col {
+		  .mega-col-inner{
+			& > ul{
+				  list-style: none outside none;
+				  margin: 0;
+				  padding: 0;
+				  & > li {
+				  		list-style: none;
+				  		margin-left: 0;
+				  		& > a {
+							clear: both;
+							color: #555555;
+							display: block;
+							line-height: 20px;
+
+				  		}
+				  }
+			}
+		}
+	}
+
+
+	.dropdown-submenu {
+		&:hover{
+			> .dropdown-menu{
+				display: block;
+			}
+		}
+		& > .dropdown-menu {
+		    border-radius: 0 6px 6px 6px;
+		    left: 100%;
+		    margin-left: -6px;
+		    margin-top: -6px;
+		    top: 0;
+		}
+	}
+	.cols2{ width: 420px; }
+	.cols3{ width: 620px; }
+	.cols4{ width: 820px; }
+}

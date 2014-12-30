@@ -1,0 +1,57 @@
+.btn-theme-primary2 {
+  background-color: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: #000000;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+}
+.btn-theme-primary2:hover {
+  background-color: #e64c65;
+  color: #FFFFFF;
+  border: 2px solid transparent;
+}
+.category-info .description {
+  display: inherit;
+}
+.tp-bullets {
+  z-index: 24 !important;
+}
+.content-bottom ul {
+  list-style: inside !important;
+}
+.btn-theme-primary_mod {
+  background-color: rgba(0,0,0,0.7);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: #000000;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+}
+.btn-theme-primary_mod:hover {
+  background-color: #e64c65;
+  color: #FFFFFF;
+  border: 2px solid transparent;
+}
+.hpone {
+color: #333;
+font-size: 1.5em;
+line-height: 2;
+padding: 0px;
+float: right;
+}
+.nav &gt; li &gt; a {
+  padding: 15px 10px !important;
+}

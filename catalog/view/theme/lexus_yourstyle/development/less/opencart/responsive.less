@@ -1,0 +1,616 @@
+/******************************************************
+ * @package Pav Opencart Theme Framework for Opencart 1.5.x
+ * @version 1.1
+ * @author http://www.pavothemes.com
+ * @copyright	Copyright (C) Augus 2013 PavoThemes.com <@emai:pavothemes@gmail.com>.All rights reserved.
+ * @license		GNU General Public License version 2
+*******************************************************/
+
+/* Ipad landscape */
+/*@media (min-width: 992px) and (max-width: 1199px)*/
+@media (min-width: @screen-md) and (max-width: @screen-md-max){
+	#pav-mainnav{
+		height: 37px;
+		
+	}
+	#pav-slideshow{
+		margin-top: -37px;
+	}
+	#topbar .navbar-header {
+	    padding-left: 135px;
+	    .login.links{
+			padding: 0 0 0 10px;
+		}
+	}
+	.nav > li > a {
+		padding: 10px 12px;
+	}
+	.multi-menu .dropdown-menu {
+		width: 1018px!important;
+	}
+	.box-search {
+		z-index: @zindex-navbar;
+		margin: 3px;
+		&:hover{
+			input {
+				padding: 5px 30px 5px 10px;
+			    .transition(all 0.6s ease 0s);
+			    width: 200px;
+			}
+			.button-search {
+			    background-color: #cc314a;
+			}
+		}
+		input {
+			width: 0;
+			padding: 0;
+			height: 30px;
+			.rounded-corners (0);
+			&:focus, &:active {
+	            width: 200px;
+	            .transition( all 0.6s ease 0s);
+	        }
+		}
+		.button-search {
+			background-color: @red;
+		}
+	}
+	.product-block{
+		min-height: 345px;
+		.image {
+			margin-bottom: 74px;
+		}
+		&:hover {
+			.product-meta{
+	    		bottom: 0;
+	    	}
+		}
+		.product-meta{
+			.product-hover{
+				 .cart{
+				 	a {
+			            color: @black;
+			            cursor: pointer;
+			            text-decoration: none;
+			            display: block;
+			            border: 2px solid #000;
+			            text-align: center;
+			            padding: 15px;
+			            float: left;
+			            display: block;
+			            margin-bottom: 0;
+			            .rounded-corners (100%);
+			            font-size: @font-size-base - 1;
+			            .transition( all 0.4s ease 0s);
+			            &:hover {
+			                color:@white;
+			                background-position: 0 110%;
+			                background-color: @theme-color-default;
+			                border: 2px solid @theme-color-default;
+			                .transition( all 0.4s ease 0s);
+			            }
+			            span {
+			                display: none;
+			            }
+			        }
+				}
+			}
+		}
+	}
+	.pav-categoryproducts .product-block {
+		 min-height: 258px!important;
+	}
+	.sidebar {
+		.carousel-controls .carousel-control.left {
+            margin-left: -50px;
+        }
+		.box.gallery .box-content{
+			padding: 15px 5px 5px 27px;
+		}
+	}
+	#page-quickview .product-action {
+	    clear: both!important;
+	}
+    .product-list {
+		.product-block {
+			border-bottom:  1px dashed #e5e5e5;
+			.product-meta .product-hover .cart a {
+			    border-radius: 15px;
+			    padding: 6px 10px 6px 20px;
+			    span {
+			    	display: inline-block;		
+			    }
+			}
+		}
+	}
+	.product-info .product-extra .product-action {
+		clear: both;
+	}
+    /*//
+	French
+	*/
+	.lang-fr {
+		.content-top {
+			.product-block:hover{
+				 .product-hover{
+				 	padding-left: 0;
+				 	.wishlist{
+				 		padding-left: 0;
+				 	}
+				 }
+			}
+		}
+		.product-filter .sort {
+		    clear: both;
+		    width: 33%;
+		}
+		.product-info .product-action {
+	        .wishlist , .compare  {
+	        	a{
+	        		border: none;
+	        	}
+				display: block;
+				margin-top: 5px;
+	        }
+	    }
+	}
+}
+/* Ipad Portrait */
+/*@media (min-width: 768px) and (max-width: 991px) {*/
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+	.zoomContainer, .product-zoom, .pav-colorbox{
+		display: none!important;
+	}
+	#topbar{
+		padding-top: 30px;
+	}
+	#pav-mainnav {
+		background: none;
+		height: 30px;
+		#logo {
+			left: 38%;
+			a {
+				border-bottom: none;
+				top: -60px;
+				img {
+					border: none;
+				}
+			}
+		}
+		.navbar-inverse{
+			.navbar-collapse.collapse  {
+				display:  none!important
+			}
+			.navbar-toggle{
+				display: block;
+				float: none;
+				border: none;
+				.size (40px;35px);
+				.rounded-corners (0);
+				background-color: rgba(0, 0, 0, 0.7);
+				margin-top: -36px;
+				.icon-bar {
+					width: 18px;
+				}
+				&:hover{
+					background-color: @red;
+				}
+
+			}
+		}
+	}
+	
+	
+	.multi-menu .dropdown-menu {
+		 right: inherit!important;
+	}
+	#pav-slideshow{
+		margin-top: 0;
+	}
+	.pav-categoryproducts{
+		.tab-content{
+			width: 100%!important;
+			.product-block {
+				.product-meta{
+					bottom: -17%;
+				}
+			}
+		}
+	}
+	.pav-showcase .box .box-heading > span:before {
+		left: 35%;
+	}
+	.pav-showcase .box-product .product-block {
+		.image {
+		    margin-bottom: 50px;
+		}
+		.product-meta{
+			.product-hover{
+				 .cart{
+				 	a {
+			            color: @black;
+			            cursor: pointer;
+			            text-decoration: none;
+			            display: block;
+			            border: 2px solid #000;
+			            text-align: center;
+			            padding: 15px;
+			            float: left;
+			            display: block;
+			            margin-bottom: 0;
+			            .rounded-corners (100%);
+			            font-size: @font-size-base - 1;
+			            .transition( all 0.4s ease 0s);
+			            &:hover {
+			                color:@white;
+			                background-position: 0 110%;
+			                background-color: @theme-color-default;
+			                border: 2px solid @theme-color-default;
+			                .transition( all 0.4s ease 0s);
+			            }
+			            span {
+			                display: none;
+			            }
+			        }
+				}
+			}
+		}
+	}
+	.product-block {
+		min-height: 278px;
+		.product-meta{
+			bottom: -64px;
+		}
+	}
+	.pavo-widget .menu-title, .widget-product-list .price{
+		color: @black!important;
+	}
+	.pavo-widget .menu-title{
+		margin-top: 20px;
+	}
+	.product-info {
+		.image-additional {
+			height: 150px;
+			.carousel-controls {
+				 margin-top: 90px;
+				 top: 0;
+			}
+		}
+	}
+	.product-related {
+		.product-block {
+			.product-meta {
+				bottom: -13%;
+			}
+			&:hover {
+				.product-meta {
+					bottom: 0;
+				}
+			}
+		}
+	}
+	.product-list {
+		.product-block {
+			border-bottom:  1px dashed #e5e5e5;
+		}
+	}
+	
+	 /*//
+	French
+	*/
+	.lang-fr {
+		.product-filter .sort {
+		    clear: both;
+		    width: 32%;
+		}
+		.product-info .product-extra .product-action {
+		    clear: none;
+		}
+	}
+}
+/* Iphone 5 landscape  */
+/*@media (max-width: 767px) {*/
+@media (max-width: @screen-xs-max) {
+	.zoomContainer, .product-zoom, .pav-colorbox{
+		display: none!important;
+	}
+	#topbar{
+		padding: 25px;
+	}
+	#pav-mainnav {
+		position: absolute;
+		background: none;
+		#logo{
+			a{
+				position: relative;
+				top: -90px;
+				left: 100%;
+				border-bottom: none;
+				img{
+					border: none;
+				}
+			}
+		}
+		.navbar-inverse{
+			.navbar-collapse.collapse  {
+				display:  none!important
+			}
+			.navbar-toggle{
+				display: block;
+				float: none;
+				border: none;
+				.size (40px;35px);
+				.rounded-corners (0);
+				background-color: rgba(0, 0, 0, 0.7);
+				margin-left: 10px;
+				margin-top: -150px;
+				.icon-bar {
+					width: 18px;
+				}
+				&:hover{
+					background-color: @red;
+				}
+
+			}
+		}
+	}
+	.pav-showcase{
+		.box .box-heading {
+    		left: 0;
+    	}
+		.carousel-controls {
+		    right: 76px;
+		    top: -25px !important;
+		    width: 0px!important;
+		    .carousel-control.left {
+			    margin-left: 8px;
+			}
+		}
+	}
+	.pavo-widget .menu-title, .widget-product-list .price{
+		color: @black!important;
+	}
+	.pavo-widget .menu-title{
+		margin-top: 20px;
+	}
+	.box-products, .product-related, .product-grid {
+		.product-block {
+			&:hover {
+				box-shadow: none;
+				border: 1px solid #e5e5e5!important;
+			}
+			.image {
+				margin-bottom: 0;
+			}
+			.product-meta {
+				position: relative;
+				bottom: 0!important;
+				text-align: left;
+				padding: 0 20px;
+				.product-hover {
+					border-top: 1px solid @white;
+					padding: 10px 0;
+				}
+				.rating, .norating {
+		            border-bottom: 1px solid @legend-border-color;
+		        }
+			}
+		}
+	}
+	.pav-categoryproducts {
+		border-left: none;
+		.box-content {
+		    border: none!important;
+		}
+		.product-block .product-content:after {
+			border-right: none!important;
+		}
+		.tab-content{
+			width: 100%!important;
+			.item .product-inner {
+				height: auto;
+				width: 100%;
+				margin: 0 0 18px;
+				.product-block {
+					border : 1px solid @legend-border-color;
+					.image img {
+					    height: auto;
+					    width: 100%;
+					}
+				}
+			}
+		}
+	}
+	.product-info {
+		.image-additional {
+			height: 130px;
+			.carousel-controls {
+				 margin-top: 90px;
+				 top: 0;
+			}
+		}
+	}
+	.product-list {
+		.product-block {
+			border-bottom:  1px dashed #e5e5e5;
+		}
+	}
+	.wishlist-info td,
+	.wishlist-info th,		
+	table.history-list td, 
+	table.history-list th,				
+	table.order-info td, 
+	table.order-info th,		
+	table.compare-info td, 
+	table.compare-info th,
+	table.pav-checkout-product td,
+	table.pav-checkout-product th,
+	table.pav-shop-cart td,
+	table.pav-shop-cart th{
+		border-right: 0 none;
+		display: block !important;
+		float: none !important;
+		text-align: left !important;
+		width: auto !important;
+	}
+	.wishlist-info tr td:before,
+	table.history-list tr td:before,
+	table.order-info tr td:before,
+	table.pav-shop-cart tr td:before{
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-align: left;
+		white-space: nowrap;
+		width: 50%;
+	}
+	.wishlist-info tr td,
+	table.order-info tr td,
+	table.history-list tr td,
+	table.pav-shop-cart tr td {
+		text-align:right;
+		display: block;
+		min-height: 20px;
+		border-left: none;
+		background: none;
+	}
+	table.history-list thead,
+	table.order-info thead,
+	.wishlist-info thead,
+	table.pav-shop-cart thead {
+		 display:  none;
+	}
+	.lang-fr {
+		.product-filter .sort {
+		    width: 100%;
+		    clear: both;
+		    text-align: right;
+		    select {
+		    	 width: 35%;
+		    }
+		}
+	}
+}
+
+/* Iphone 4 + 5 Portrait */
+/*@media (max-width: 480px) {*/
+@media (max-width: @screen-phone) {
+	.zoomContainer, .product-zoom, .pav-colorbox{
+		display: none!important;
+	}
+	#topbar{
+		padding: 10px;
+	}
+	#pav-mainnav {
+		height: 92px;
+		position: relative;
+		#logo{
+			text-align: center;
+			a{
+				position: relative;
+				top: 0;
+				left: auto;
+				border-bottom: none;
+				img{
+					border: none;
+				}
+			}
+		}
+		.navbar-inverse{
+			.navbar-collapse.collapse  {
+				display:  none!important
+			}
+			.navbar-toggle{
+				display: block;
+				float: none;
+				border: none;
+				.size (40px;35px);
+				.rounded-corners (0);
+				background-color: rgba(0, 0, 0, 0.7);
+				margin-left: 10px;
+				margin-top: -140px;
+				.icon-bar {
+					width: 18px;
+				}
+				&:hover{
+					background-color: @red;
+				}
+
+			}
+		}
+	}
+	.pavo-widget .menu-title{
+		margin-top: 20px;
+	}
+	.product-block .product-meta .rating, .product-block .product-meta .norating{
+		 border-bottom: 1px solid @legend-border-color;
+	}
+	.box-products .product-block .product-meta .product-hover {
+	    padding: 10px 0;
+	}
+	.product-block .product-meta .product-hover{
+		border-top: 1px solid @white;
+		overflow: hidden;
+	}
+	.product-block:hover{
+		box-shadow: none;
+	}
+	.pav-categoryproducts {
+		border: 0!important;
+		.tab-content{
+			width: 100%!important;
+			.item .product-inner {
+				height: auto;
+				width: 100%;
+				margin: 0 0 18px;
+				.product-block {
+					border : 1px solid @legend-border-color;
+					.image img {
+					    height: auto;
+					    width: 100%;
+					}
+				}
+			}
+		}
+	}
+	.product-info {
+		.product-action {
+			clear: both;
+			.compare, .wishlist {
+				display: block!important;
+				a {
+					border:  none;
+					margin-top: 5px;
+				}
+			}
+		}
+		.quantity-adder {
+			width: 100%!important;
+		}
+		.image-additional a.colorbox {
+		    margin-left: -1px;
+		}
+	}
+	.product-list {
+		.image {
+			width: 100%;
+		}
+		.product-block {
+			border-bottom: none;
+		}
+	}
+	.social li {
+		width: 100%;
+	}
+	.zoomContainer {
+	    display: none;
+	}
+	.htabs {
+		a, a.selected {
+			padding: 5px;
+			font-size: 13px;
+    		margin-bottom: 0;
+		}
+	}
+}
+

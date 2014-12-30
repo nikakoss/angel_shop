@@ -1,0 +1,343 @@
+/******************************************************
+ * @package Pav Opencart Theme Framework for Opencart 1.5.x
+ * @version 1.1
+ * @author http://www.pavothemes.com
+ * @copyright	Copyright (C) Augus 2013 PavoThemes.com <@emai:pavothemes@gmail.com>.All rights reserved.
+ * @license		GNU General Public License version 2
+*******************************************************/
+.btn-theme-primary {
+	 background-color: transparent;
+	 border: 2px solid rgba(0, 0, 0, 0.2);
+     color: @black;
+     padding:6px 10px;
+     text-transform: uppercase;
+     font-size: @font-size-base - 2;
+     .rounded-corners (20px);
+	 &:hover{
+	 	background-color: @btn-theme-primary;
+	 	color: @white;
+        border: 2px solid transparent;
+
+.text-primary-theme {
+    color: @text-primary-theme;
+}
+.text-danger-theme {
+    color: @text-danger-theme;
+}
+
+.box-services {
+    font-size: @font-size-base + 3;
+    text-transform: uppercase;
+    .iconbox {
+        .rounded-corners( 20px );
+        height: 34px;
+        line-height: 34px;
+        width: 34px;
+        .box-shadow( 0 0 0 3px @theme-color-hover);
+        position: relative;
+        z-index: 1;
+        display:  inline-block;
+        &:after{
+            .rounded-corners( 20px );
+            background: repeat scroll 0 0 @theme-color-hover;
+            left: -2px;
+            padding: 2px;
+            top: -2px;
+            .transition ( all 0.4s ease 0s);
+            .box-sizing(content-box);
+            content: "";
+            height: 100%;
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            .opacity (1);
+        }
+        &:hover {
+            color:  @theme-color-hover;            
+            &:after{
+            .opacity (0);
+            .scale (0);
+            .transition (all 0.4s ease 0s);
+            color:  @theme-color-hover;
+        }
+        }
+    }
+    .btn-info{
+        background-color: transparent;
+         .box-shadow( 0 0 0 3px @brand-info);
+        &:after{
+            background: repeat scroll 0 0  @brand-info;
+        }
+        &:hover{
+            color:  @brand-info;            
+        }
+    }
+}
+.box-media {
+    .media {
+        color: #939393;
+        background-color: #fafafa;
+        border: 1px solid #f6f6f6;
+        padding: 10px;
+        a.pull-left{
+            margin-right: -45px;
+        }
+        a.pull-right{
+            margin-left: -45px;
+        }
+        .media-right {
+            text-align: right;
+           p{
+                margin-right: 0;
+                margin-left: 30px;
+            }
+        }
+        p {
+            margin-right: 30px;
+        }
+    }
+}
+.media-dark .media {
+    background-color: #efefef;
+    border: 1px solid #efefef;
+}
+.newsletter{
+    input ,button{
+        .rounded-corners( 0 );
+        line-height:  19px;
+    }
+    .navbar-form {
+        padding: 0;
+    }
+}
+	 }
+}
+.text-primary-theme {
+	color: @text-primary-theme;
+}
+.text-danger-theme {
+	color: @text-danger-theme;
+}
+
+
+/*
+ *
+ */
+.iconbox {
+    color: @white;
+    display: block;
+    float: left;
+    height: 26px;
+    width: 26px;
+    line-height: 26px;
+    text-align: center;
+    margin-right: 8px;
+    font-size: @font-size-base + 3;
+    &:hover {
+        color: @white;
+    }
+    i {
+        padding-left: 3px;
+    }
+}
+
+.social {
+    margin: @theme-margin + 20 0;
+    overflow: hidden;
+    li{
+        width: 48%;
+        a {
+            position: relative;
+            z-index: 1;
+            .box-shadow(0 0 0 1px #4c4c4c);
+            color: @white!important;
+            .size(40px; 40px);
+            display: inline-block;
+            text-align: center;
+            margin: 2px;
+            padding: 10px 13px;
+            float: left;
+            .transition ( color 0.3s);
+            .fa {
+                font-size: @footer-heading-font-size + 3;
+            }
+            &.hi-icon:after {
+                top: 0;
+                left: 0;
+               z-index: -1;
+                background: #4c4c4c;
+                -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+                -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+                transition: transform 0.2s, opacity 0.2s;
+                pointer-events: none;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                content: '';
+                -webkit-box-sizing: content-box;
+                -moz-box-sizing: content-box;
+                box-sizing: content-box;
+            }
+            &:hover{
+                .box-shadow(0 0 0 1px @theme-color-default);
+                &:after{
+                    background-color: @theme-color-default;
+                    -webkit-transform: scale(0.90);
+                    -moz-transform: scale(0.90);
+                    -ms-transform: scale(0.90);
+                }
+            }
+        }
+    }
+}
+.box-services {
+    font-size: @font-size-base + 3;
+    text-transform: uppercase;
+    .iconbox {
+        .rounded-corners( 20px );
+        height: 34px;
+        line-height: 34px;
+        width: 34px;
+        .box-shadow( 0 0 0 3px @theme-color-hover);
+        position: relative;
+        z-index: 1;
+        display:  inline-block;
+        &:after{
+            .rounded-corners( 20px );
+            background: repeat scroll 0 0 @theme-color-hover;
+            left: -2px;
+            padding: 2px;
+            top: -2px;
+            .transition ( all 0.4s ease 0s);
+            .box-sizing(content-box);
+            content: "";
+            height: 100%;
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            .opacity (1);
+        }
+        &:hover {
+            color:  @theme-color-hover;            
+            &:after{
+            .opacity (0);
+            .scale (0);
+            .transition (all 0.4s ease 0s);
+            color:  @theme-color-hover;
+        }
+        }
+    }
+    .btn-info{
+        background-color: transparent;
+         .box-shadow( 0 0 0 3px @brand-info);
+        &:after{
+            background: repeat scroll 0 0  @brand-info;
+        }
+        &:hover{
+            color:  @brand-info;            
+        }
+    }
+}
+.box-media {
+    .media {
+        color: #939393;
+        background-color: #fafafa;
+        border: 1px solid #f6f6f6;
+        padding: 10px;
+        a.pull-left{
+            margin-right: -45px;
+        }
+        a.pull-right{
+            margin-left: -45px;
+        }
+        .media-right {
+            text-align: right;
+           p{
+                margin-right: 0;
+                margin-left: 30px;
+            }
+        }
+        p {
+            margin-right: 30px;
+        }
+    }
+}
+.media-dark .media {
+    background-color: #efefef;
+    border: 1px solid #efefef;
+}
+.newsletter{
+    input ,button{
+        .rounded-corners( 0 );
+        line-height:  19px;
+    }
+    .navbar-form {
+        padding: 0;
+    }
+    .form-newsletter{
+        p {
+            text-transform: uppercase;
+            font-size: @font-size-base - 2;
+            color: @white;
+            span {
+                position: relative;
+                .inputNew {
+                    border: 1px solid #5c5c5c;
+                    background: none;
+                    width: 198px;
+                    position: relative;
+                    display: inline-block;
+                    padding-left: 20px
+                }
+                .button_mini{
+                    color: @text-color;
+                    position: absolute;
+                    border: medium none;
+                    font-size: @font-size-base - 1;
+                    left: 8px;
+                    position: absolute;
+                    top: -2px;
+                }
+            }
+            .submitNewsletter {
+                background-color:#1c1c1c;
+                padding: 10px 20px;
+                border: medium none;
+                color: @text-color;
+                text-transform: uppercase;
+                font-size: @font-size-base - 2;
+                transition: all 0.4s ease 0s;
+                &:hover {
+                    background-color: @btn-default-bg;
+                    color: @white;
+                }
+            }
+        }
+    }
+}
+
+.left-position {
+    top: 35%!important;
+    left: 40%!important;
+}
+
+
+/*
+ * French language
+ */
+.lang-fr {
+    
+    .product-filter .sort{
+        width: 30%;
+    }
+    .product-filter .sort select {
+        width: 65%;
+    }
+    .product-info .product-extra .product-action {
+        clear: both;
+    }
+}
+

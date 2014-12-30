@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Sales Promotion Versions 1.5.2 and up</id>
+	<version>1.3</version>
+	<vqmver>2.0</vqmver>
+	<author>Opcrat</author>
+	<file name="catalog/view/theme/default/template/module/cart.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<?php echo $product['total']; ?>]]></search>
+			<add><![CDATA[
+			
+			<?php 
+			echo $product['total'];
+			if($this->config->get('sales_promotion_cart_display') == 1) {
+				if(isset($this->session->data['sales_promotion_product'])) {
+					if(isset($this->session->data['sales_promotion_product'][$product['key']])) {
+						$sp_message = $this->session->data['sales_promotion_product'][$product['key']];
+						?>
+					
+						<br/><span style="color:red;">
+						<?php foreach($sp_message as $sp_promotional_message) { ?>
+							<?php echo $sp_promotional_message['sales_promotion_name']. ":- " .$sp_promotional_message['discount_text']."<br/>"; ?>
+						<?php } ?>
+						<span>
+						</td>
+			<?php } } } ?>
+          	]]></add>
+		</operation>
+	</file>
+</modification>	
+
+
+
+			
