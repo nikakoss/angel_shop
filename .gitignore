@@ -1,0 +1,24 @@
+# Config and Htaccess Files
+/.htaccess
+/config.php
+/admin/config.php
+
+# System Cache Files
+/system/cache/*
+!/system/cache/index.html
+
+# Image File
+/image/cache/*
+/image/data/*
+/image/flags/*
+/image/templates/*
+!/image/cache/index.html
+!/image/no_image.jpg
+
+# Download Files
+/download/*
+!/download/index.html
+
+# Log Files
+/system/logs/*
+!/system/logs/index.html
