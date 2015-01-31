@@ -93,6 +93,7 @@
             }
 
             /*ratkin - BEGIN*/
+            /*
             $updates = array();
             if($category['name'] == 'Мужчинам'){
                 $data['categories_title_template'] = "Мужчинам | Angel-moda";
@@ -159,6 +160,7 @@
                 $data['categories_meta_keyword_template'] = "$gender ". utf8_strtolower($parent_name) .", брендовые, итальянский, из Италии, купить, цена, продажа, оптом";
                 $data['categories_meta_description_template'] = "$gender ". utf8_strtolower($parent_name) ." - купить оптом и в розницу в интернет магазине 'Angel-moda'. ". $n ." - большой ассортимент товаров из Италии по приемлимым ценам. Принимаем заказы по тел. +7(929)580-08-10.";
             }
+            */
             /*ratkin - END*/
 
             if(isset($category['seo_h1']) && (isset($data['categories_h1_overwrite']) || (strlen(trim($category['seo_h1']))) == 0)) {
@@ -204,6 +206,7 @@
             }
 
             /*ratkin - BEGIN*/
+            /*
             $category_id = $product['category_id'];
 
             for(;;){
@@ -302,6 +305,7 @@
                 $data['products_meta_keyword_template'] = "[product_name], 10$product[product_id], бижутерия, [category_name], итальянский, брендовый, Италия, купить, цена, продажа, оптом";
                 $data['products_meta_description_template'] = "[product_name] (10$product[product_id]) - купить по доступной цене за [price] Лучшие брендовые ".utf8_strtolower($n)." из Италии в интернет магазине 'Angel Moda'. Принимаем заказы по тел. +7(929)580-08-10.";
             }
+            */
             /*ratkin - END*/
 
             //echo $gender.' | ';
@@ -409,6 +413,7 @@
         }
 
         /*ratkin - BEGIN*/
+        /*
         private function getParentCategories($category_id = false) {
             if($category_id != '0'){
                 $query = $this->db->query("SELECT c.* FROM " . DB_PREFIX . "category c WHERE c.category_id = " . (int)$category_id);
@@ -417,6 +422,7 @@
             } else
                 return $id[0] = 0;
         }
+        */
         /*ratkin - END*/
 
         private function getProducts($product_id = false) {
