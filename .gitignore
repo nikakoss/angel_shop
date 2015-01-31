@@ -1,4 +1,5 @@
 # Config and Htaccess Files
+/.idea
 /.htaccess
 /config.php
 /admin/config.php

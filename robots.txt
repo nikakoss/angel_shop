@@ -23,6 +23,11 @@ Disallow: /?f=
 Disallow: /akciya
 Disallow: /vozvrat
 Disallow: /search/
+Disallow: /shopping-cart/
+Disallow: /kak-sdelat-zakaz
+Disallow: /muzhchinam/muzhskaya-odezhda/kurtki/brands/kurtka-kuss-kuss-muzhskie-kurtki-1
+Disallow: /muzhchinam/obuv/
+Disallow: /usloviya-soglasheniya
 Disallow: /*tag
 Disallow: /*page
 Disallow: /22-maggio 
@@ -56,6 +61,11 @@ Disallow: /?f=
 Disallow: /akciya
 Disallow: /vozvrat
 Disallow: /search/
+Disallow: /shopping-cart/
+Disallow: /kak-sdelat-zakaz
+Disallow: /muzhchinam/muzhskaya-odezhda/kurtki/brands/kurtka-kuss-kuss-muzhskie-kurtki-1
+Disallow: /muzhchinam/obuv/
+Disallow: /usloviya-soglasheniya
 Disallow: /*tag
 Disallow: /*page
 Disallow: /22-maggio 
