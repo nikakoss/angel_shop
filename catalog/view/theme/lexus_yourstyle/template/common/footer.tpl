@@ -149,4 +149,5 @@ Please donate via PayPal to donate@opencart.com
         <?php  echo $helper->renderAddon( 'panel' );?>
 <?php } ?>
 </section>
+<a href="#" class="scrollup">Наверх</a>
 </body></html>

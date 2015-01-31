@@ -102,20 +102,34 @@
 				$products_rel=unserialize($blog['product_related']);	
 				$this->data['products'] = array(); 
 				if($products_rel){
-				 $this->language->load('product/product');	
-						$this->data['button_cart'] = $this->language->get('button_cart');
-                        $this->data['button_wishlist'] = $this->language->get('button_wishlist');
-                        $this->data['button_compare'] = $this->language->get('button_compare');                 
-                        $this->data['button_upload'] = $this->language->get('button_upload');
-                        $this->data['button_continue'] = $this->language->get('button_continue');
+					$this->language->load('product/product');	
+					$this->data['button_cart'] = $this->language->get('button_cart');
+					$this->data['button_wishlist'] = $this->language->get('button_wishlist');
+					$this->data['button_compare'] = $this->language->get('button_compare');                 
+					$this->data['button_upload'] = $this->language->get('button_upload');
+					$this->data['button_continue'] = $this->language->get('button_continue');
 
-						
-				$this->load->model('tool/image');
-				$this->language->load('product/product');			
-				$this->load->model('catalog/product');		
-				$this->load->model('checkout/sales_promotion');
+					$this->load->model('tool/image');
+					$this->language->load('product/product');			
+					$this->load->model('catalog/product');		
+					$this->load->model('checkout/sales_promotion');
 				
-				$this->data['products_rel'] = array();
+					$this->data['products_rel'] = array();
+			
+					$result = $this->model_catalog_product->getPavBlogProductFilters($blog_id);
+					if($result){					
+						$row_in=array();
+						foreach($result as $key=>$val){
+							$row_in[]=(int)$val;
+						}				
+						$row_in = implode(",", $row_in);
+						$query=$this->db->query("SELECT product_id FROM `oc_product_filter` WHERE filter_id IN(".$row_in.") group by product_id")->rows;
+						
+						$products_rel=array();
+						foreach ($query as $result) { 		
+							$products_rel[] = $result['product_id'];
+						}					
+					}	
 			
 			foreach ($products_rel as $product_id) {	
 				$result = $this->model_catalog_product->getProduct($product_id);
@@ -172,7 +186,8 @@ $sales= $this->model_checkout_sales_promotion->getSalesPromotionProduct($result[
 				} else {
 					$tax = false;
 				}
-							
+
+				if($result['price']>0){
 				$this->data['products_rel'][] = array(
 					'product_id' => $result['product_id'],
 					'thumb'   	 => $image,
@@ -186,6 +201,7 @@ $sales= $this->model_checkout_sales_promotion->getSalesPromotionProduct($result[
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'href'    	 => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
+				}				
 			}
 			
 			

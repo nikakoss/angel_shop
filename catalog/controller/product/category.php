@@ -13,11 +13,13 @@ class ControllerProductCategory extends Controller
         
         if (isset($this->request->get['filter'])) {
             $filter = $this->request->get['filter'];
-        } else {
+        }elseif(isset($this->request->get['tags_id'])) {
+			$tags_id = explode('_', (string) $this->request->get['tags_id']);
+			$filter = (int) array_pop($tags_id);
+		} else {
             $filter = '';
         }
-        
-        
+		        
         if (isset($this->request->get['sort'])) {
             $sort = $this->request->get['sort'];
         } else {
@@ -51,6 +53,8 @@ class ControllerProductCategory extends Controller
             'separator' => false
         );
         
+		
+		
         if (isset($this->request->get['path'])) {
             $url = '';
             

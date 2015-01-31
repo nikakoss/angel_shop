@@ -738,5 +738,17 @@ class ModelCatalogProduct extends Model {
 			return 0;	
 		}
 	}
+	
+	public function getPavBlogProductFilters($product_id) {
+                $product_filter_data = array();
+                
+                $query = $this->db->query("SELECT * FROM oc_pavblog_product_filter WHERE product_id = '" . (int)$product_id . "'");
+                
+                foreach ($query->rows as $result) {
+                        $product_filter_data[] = $result['filter_id'];
+                }
+                                
+                return $product_filter_data;
+        }
 }
 ?>

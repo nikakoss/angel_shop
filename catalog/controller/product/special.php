@@ -131,10 +131,31 @@ class ControllerProductSpecial extends Controller {
 			} else {
 				$rating = false;
 			}
-						
+			
+			// empty option begin orest831@gmail.com
+                    $options = array();                    
+                    foreach ($this->model_catalog_product->getProductOptions($result['product_id']) as $option) {
+                        
+                      $option_value=array();  
+						if($option['option_value']){
+							foreach($option['option_value'] as $item){
+								if((int)$item['quantity']>0){
+									$option_value[]['name']=$item['name'];
+								}
+							}
+						}
+						if(count($option_value)>0){
+						$options[]=array(
+						'name'=>$option['name'],
+						'option_value'=>$option_value
+						);
+						}
+                }
+			
 			$this->data['products'][] = array(
 				'product_id'  => $result['product_id'],
 				'thumb'       => $image,
+				'options' => $options,
 				'name'        => $result['name'],
 				'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 300) . '..',
 				'price'       => $price,

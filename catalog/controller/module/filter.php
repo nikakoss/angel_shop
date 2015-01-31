@@ -13,6 +13,8 @@ class ControllerModuleFilter extends Controller {
 		
 		$category_info = $this->model_catalog_category->getCategory($category_id);
 		
+		
+		
 		if ($category_info) {
 			$this->language->load('module/filter');
 		
@@ -33,12 +35,18 @@ class ControllerModuleFilter extends Controller {
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
+			
+			
 									
 			$this->data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url));
 			
 			if (isset($this->request->get['filter'])) {
 				$this->data['filter_category'] = explode(',', $this->request->get['filter']);
-			} else {
+			} elseif(isset($this->request->get['tags_id'])){
+				$tags_id = explode('_', (string) $this->request->get['tags_id']);
+				$filter = (int) array_pop($tags_id);
+				$this->data['filter_category']=array($filter);
+			}else {
 				$this->data['filter_category'] = array();
 			}
 			
@@ -48,7 +56,7 @@ class ControllerModuleFilter extends Controller {
 			
 			$filter_groups = $this->model_catalog_category->getCategoryFilters($category_id);
 			
-			if ($filter_groups) {
+			if ($filter_groups) { 
 				foreach ($filter_groups as $filter_group) {
 					$filter_data = array();
 					
@@ -60,6 +68,7 @@ class ControllerModuleFilter extends Controller {
 						
 						$filter_data[] = array(
 							'filter_id' => $filter['filter_id'],
+							'seo' => $filter['seo'],
 							'name'      => $filter['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($data) . ')' : '')
 						);
 					}

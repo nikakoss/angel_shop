@@ -1,0 +1,126 @@
+---------- Date: 2015-01-29 22:41:42 ~ IP : 188.230.67.52 ----------
+REQUEST URI : /bizhuteriya/broshi/brands/brosh-angeletto-brosh-angeletto-broshi-8
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/related_options.xml
+   id        : Related Options / Связанные опции
+   version   : 1.7.1
+   vqmver    : 2.X
+   author    : Support: support@liveopencart.com / Поддержка: opencart@19th19th.ru
+VQModObject::parseMods - Could not resolve path for [/catalog/controller/journal2/ajax.php] (SKIPPED)
+
+File Name    : catalog/view/theme/*/template/product/product.tpl(3)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <?php echo $content_bottom; ?>
+
+File Name    : catalog/view/theme/*/template/product/product.tpl(4)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <?php echo $model; ?>
+
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/vqmm_pav_blogs_menu_shortcut.xml
+   id        : VQMod Pavo Blogs Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : pavothemes.com
+
+File Name    : catalog/language/*/common/header.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $_['text_home']           = 'Home';
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-01-29 22:43:44 ~ IP : 91.121.163.214 ----------
+REQUEST URI : /bizhuteriya/klipsy/
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/related_options.xml
+   id        : Related Options / Связанные опции
+   version   : 1.7.1
+   vqmver    : 2.X
+   author    : Support: support@liveopencart.com / Поддержка: opencart@19th19th.ru
+VQModObject::parseMods - Could not resolve path for [/catalog/controller/journal2/ajax.php] (SKIPPED)
+
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/vqmm_pav_blogs_menu_shortcut.xml
+   id        : VQMod Pavo Blogs Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : pavothemes.com
+
+File Name    : catalog/language/*/common/header.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $_['text_home']           = 'Home';
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-01-29 22:53:13 ~ IP : 188.230.67.52 ----------
+REQUEST URI : /index.php?route=checkout/cart/add
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/related_options.xml
+   id        : Related Options / Связанные опции
+   version   : 1.7.1
+   vqmver    : 2.X
+   author    : Support: support@liveopencart.com / Поддержка: opencart@19th19th.ru
+VQModObject::parseMods - Could not resolve path for [/catalog/controller/journal2/ajax.php] (SKIPPED)
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-01-29 22:53:28 ~ IP : 188.230.67.52 ----------
+REQUEST URI : /shopping-cart/
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/vqmm_pav_blogs_menu_shortcut.xml
+   id        : VQMod Pavo Blogs Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : pavothemes.com
+
+File Name    : catalog/language/*/common/header.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $_['text_home']           = 'Home';
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-01-29 22:55:45 ~ IP : 5.255.253.217 ----------
+REQUEST URI : /shopping-cart/
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/related_options.xml
+   id        : Связанные опции
+   version   : 1.7.1
+   vqmver    : 2.X
+   author    : 
+VQModObject::parseMods - Could not resolve path for [/catalog/controller/journal2/ajax.php] (SKIPPED)
+
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/vqmm_pav_blogs_menu_shortcut.xml
+   id        : VQMod Pavo Blogs Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : pavothemes.com
+
+File Name    : catalog/language/*/common/header.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $_['text_home']           = 'Home';
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-01-29 23:01:20 ~ IP : 188.230.67.52 ----------
+REQUEST URI : /bizhuteriya/broshi/brands/brosh-angeletto-brosh-angeletto-broshi-8
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/related_options.xml
+   id        : Связанные опции
+   version   : 1.7.1
+   vqmver    : 2.X
+   author    : 
+VQModObject::parseMods - Could not resolve path for [/catalog/controller/journal2/ajax.php] (SKIPPED)
+
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/vqmm_pav_blogs_menu_shortcut.xml
+   id        : VQMod Pavo Blogs Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : pavothemes.com
+
+File Name    : catalog/language/*/common/header.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $_['text_home']           = 'Home';
+
+----------------------------------------------------------------------
+
+

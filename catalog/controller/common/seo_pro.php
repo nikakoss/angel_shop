@@ -27,7 +27,7 @@ class ControllerCommonSeoPro extends Controller
         } else {
             return;
         }
-
+if (isset($_COOKIE['logs'])) {echo "<pre>"; }
         // Decode URL
         if (!isset($this->request->get['_route_'])) {
             $this->validate();
@@ -38,17 +38,33 @@ class ControllerCommonSeoPro extends Controller
             $parts = explode('/', trim(utf8_strtolower($route), '/'));
             list($last_part) = explode('.', array_pop($parts));
             array_push($parts, $last_part);
-            if (isset($_COOKIE['logs'])) {
-                echo "#17 ";
-                var_dump($parts);
-            }
-            $rows = array();
-            foreach ($parts as $keyword) {
+			
+			// Tags
+		/*	$temp_parts=array();
+				foreach($parts as $item){
+					if($item=='tags'){break;}
+					$temp_parts[]=$item;
+				}
+			$parts =$temp_parts;  */
+			// End Tags
+            if (isset($_COOKIE['logs'])) {echo "#17 "; var_dump($parts); }
+            
+			//Tags
+			$active=false;
+			
+			$rows = array();
+            foreach ($parts as $keyword) {				
+				if (isset($_COOKIE['logs'])) {echo "#18 "; var_dump($keyword); }
                 if (isset($this->cache_data['keywords'][$keyword])) {
                     $rows[] = array('keyword' => $keyword, 'query' => $this->cache_data['keywords'][$keyword]);
                 }
             }
-
+			
+			
+		if (isset($_COOKIE['logs'])) {echo "#19"; var_dump(count($rows)); }
+		if (isset($_COOKIE['logs'])) {echo "#20"; var_dump(sizeof($parts)); }
+		if (isset($_COOKIE['logs'])) {echo "#21"; var_dump($rows); }
+		
             if (count($rows) == sizeof($parts)) {
                 $queries = array();
                 foreach ($rows as $row) {
@@ -56,17 +72,27 @@ class ControllerCommonSeoPro extends Controller
                 }
 
                 reset($parts);
-
+				
                 foreach ($parts as $part) {
+					if (isset($_COOKIE['logs'])) {echo "#22"; var_dump($part); }
+					// tags 
+					//if($part=='tags'){break;}
+										
                     $url = explode('=', $queries[$part], 2);
-
+					if (isset($_COOKIE['logs'])) {echo "#23"; var_dump($url[0]); }
                     if ($url[0] == 'category_id') {
                         if (!isset($this->request->get['path'])) {
                             $this->request->get['path'] = $url[1];
                         } else {
                             $this->request->get['path'] .= '_' . $url[1];
                         }
-                    } elseif ($url[0] == 'pavblog/category') {
+                    } elseif ($url[0] == 'tags_id') {
+						if (!isset($this->request->get['tags_id'])) {
+                            $this->request->get['tags_id'] = $url[1];
+                        } else {
+                            $this->request->get['tags_id'] .= '_' . $url[1];
+                        }
+					}elseif ($url[0] == 'pavblog/category') {
                         $this->request->get[$url[0]] = $url[1];
                         //$this->request->get['id'] = $url[1];
                     } elseif (count($url) > 1) {
@@ -82,7 +108,9 @@ class ControllerCommonSeoPro extends Controller
             } else {
                 $this->request->get['route'] = 'error/not_found';
             }
-
+			
+			
+			
             if (isset($this->request->get['product_id'])) {
                 $this->request->get['route'] = 'product/product';
                 if (!isset($this->request->get['path'])) {
@@ -133,6 +161,7 @@ class ControllerCommonSeoPro extends Controller
         $route = $data['route'];
         unset($data['route']);
 
+if (isset($_COOKIE['logs'])) {echo "#26"; var_dump($route); }
 
         switch ($route) {
             case 'product/product':
@@ -159,6 +188,8 @@ class ControllerCommonSeoPro extends Controller
                     $data['path'] = $this->getPathByCategory($category);
                     if (!$data['path']) return $link;
                 }
+				
+				
                 break;
 
             case 'product/product/review':
@@ -170,7 +201,10 @@ class ControllerCommonSeoPro extends Controller
             default:
                 break;
         }
-
+		
+		
+		if (isset($_COOKIE['logs'])) {echo "#28"; var_dump($data); }
+		
         if ($component['scheme'] == 'https') {
             $link = $this->config->get('config_ssl');
         } else {
@@ -185,7 +219,7 @@ class ControllerCommonSeoPro extends Controller
 
         $queries = array();
         foreach ($data as $key => $value) {
-
+		
             switch ($key) {
                 case 'product_id':
                 case 'manufacturer_id':
@@ -210,6 +244,14 @@ class ControllerCommonSeoPro extends Controller
                     }
                     unset($data[$key]);
                     break;
+				case 'tags_id':
+
+                    $categories = explode('_', $value);
+                    foreach ($categories as $category) {
+                        $queries[] = 'tags_id=' . $category;
+                    }
+                    unset($data[$key]);
+                    break;	
                 case 'pavblog/category':
 
                     $queries[] = 'pavblog/blogs';
@@ -229,7 +271,8 @@ class ControllerCommonSeoPro extends Controller
                     break;
             }
         }
-
+		
+		if (isset($_COOKIE['logs'])) {echo "#29"; var_dump($queries); }
 
         if (empty($queries)) {
             $queries[] = $route;
@@ -278,7 +321,7 @@ class ControllerCommonSeoPro extends Controller
         if (count($data)) {
             $seo_url .= '?' . urldecode(http_build_query($data, '', '&amp;'));
         }
-
+		if (isset($_COOKIE['logs'])) {echo "#17 "; var_dump($seo_url); exit; }
         return $seo_url;
     }
 
