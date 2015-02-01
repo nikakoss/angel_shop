@@ -3,36 +3,38 @@ class ControllerInformationSitemap extends Controller {
 	public function index() {
     	$this->language->load('information/sitemap');
  
-		$this->document->setTitle($this->language->get('heading_title')); 
+      $this->document->setTitle($this->language->get('heading_title'));
+      $this->document->setDescription("Карта сайта компании Angel-Moda. Краткая информация о разделах сайта. Вопросы по тел. +7(929)580-08-10.");
+      $this->document->setKeywords("карта сайта, интернет магазин, angel-moda");    
 
-      	$this->data['breadcrumbs'] = array();
+      $this->data['breadcrumbs'] = array();
 
-      	$this->data['breadcrumbs'][] = array(
-        	'text'      => $this->language->get('text_home'),
-			'href'      => $this->url->link('common/home'),
-        	'separator' => false
-      	);
+      $this->data['breadcrumbs'][] = array(
+        'text'      => $this->language->get('text_home'),
+        'href'      => $this->url->link('common/home'),
+        'separator' => false
+      );
 
-      	$this->data['breadcrumbs'][] = array(
-        	'text'      => $this->language->get('heading_title'),
-			'href'      => $this->url->link('information/sitemap'),      	
-        	'separator' => $this->language->get('text_separator')
-      	);	
+      $this->data['breadcrumbs'][] = array(
+        'text'      => $this->language->get('heading_title'),
+        'href'      => $this->url->link('information/sitemap'),      	
+        'separator' => $this->language->get('text_separator')
+      );	
 		
     	$this->data['heading_title'] = $this->language->get('heading_title');
 
 		$this->data['text_special'] = $this->language->get('text_special');
 		$this->data['text_account'] = $this->language->get('text_account');
-    	$this->data['text_edit'] = $this->language->get('text_edit');
-    	$this->data['text_password'] = $this->language->get('text_password');
-    	$this->data['text_address'] = $this->language->get('text_address');
-    	$this->data['text_history'] = $this->language->get('text_history');
-    	$this->data['text_download'] = $this->language->get('text_download');
-    	$this->data['text_cart'] = $this->language->get('text_cart');
-    	$this->data['text_checkout'] = $this->language->get('text_checkout');
-    	$this->data['text_search'] = $this->language->get('text_search');
-    	$this->data['text_information'] = $this->language->get('text_information');
-    	$this->data['text_contact'] = $this->language->get('text_contact');
+    $this->data['text_edit'] = $this->language->get('text_edit');
+    $this->data['text_password'] = $this->language->get('text_password');
+    $this->data['text_address'] = $this->language->get('text_address');
+    $this->data['text_history'] = $this->language->get('text_history');
+    $this->data['text_download'] = $this->language->get('text_download');
+    $this->data['text_cart'] = $this->language->get('text_cart');
+    $this->data['text_checkout'] = $this->language->get('text_checkout');
+    $this->data['text_search'] = $this->language->get('text_search');
+    $this->data['text_information'] = $this->language->get('text_information');
+    $this->data['text_contact'] = $this->language->get('text_contact');
 			
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');

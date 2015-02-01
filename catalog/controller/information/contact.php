@@ -3,9 +3,11 @@ class ControllerInformationContact extends Controller {
 	private $error = array(); 
 	    
   	public function index() {
-		$this->language->load('information/contact');
+      $this->language->load('information/contact');
 
-    	$this->document->setTitle($this->language->get('heading_title'));  
+    	$this->document->setTitle($this->language->get('heading_title')); 
+      $this->document->setDescription("Контактная информация компании Angel-Moda. Адрес в Москве: Большая Очаковская, 3. Телефон: +7(929)580-08-10. График работы Пн-Сб 10:00-20:00 Вс 10:00-18:00.");
+      $this->document->setKeywords("контакты, связаться с нами, телефон, адрес, интернет магазин, angel-moda");
 	 
     	if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$mail = new Mail();
@@ -17,11 +19,11 @@ class ControllerInformationContact extends Controller {
 			$mail->port = $this->config->get('config_smtp_port');
 			$mail->timeout = $this->config->get('config_smtp_timeout');				
 			$mail->setTo($this->config->get('config_email'));
-	  		$mail->setFrom($this->request->post['email']);
-	  		$mail->setSender($this->request->post['name']);
-	  		$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
-	  		$mail->setText(strip_tags(html_entity_decode($this->request->post['enquiry'], ENT_QUOTES, 'UTF-8')));
-      		$mail->send();
+      $mail->setFrom($this->request->post['email']);
+      $mail->setSender($this->request->post['name']);
+      $mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
+      $mail->setText(strip_tags(html_entity_decode($this->request->post['enquiry'], ENT_QUOTES, 'UTF-8')));
+      $mail->send();
 
 	  		$this->redirect($this->url->link('information/contact/success'));
     	}
