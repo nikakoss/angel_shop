@@ -21,7 +21,7 @@ class ControllerInformationSitemap extends Controller {
         'separator' => $this->language->get('text_separator')
       );	
 		
-    	$this->data['heading_title'] = $this->language->get('heading_title');
+    $this->data['heading_title'] = $this->language->get('heading_title');
 
 		$this->data['text_special'] = $this->language->get('text_special');
 		$this->data['text_account'] = $this->language->get('text_account');
@@ -73,18 +73,44 @@ class ControllerInformationSitemap extends Controller {
 				'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
 			);
 		}
+
+		$this->load->model('pavblog/blog');
+		$this->load->model('pavblog/category');
 		
+		$this->data['pavblog_categories'] = array();
+					
+		$pavblog_data_categories = $this->model_pavblog_category->getChild(1);
+		
+		foreach ($pavblog_data_categories as $pavblog_data_category) {
+			$pavblog_blog_data = array();
+			$data_blog['filter_category_id'] = $pavblog_data_category['category_id'];
+			$pavblog_blogs = $this->model_pavblog_blog->getListBlogs($data_blog);
+			
+			foreach ($pavblog_blogs as $pavblog_blog) {
+				$pavblog_blog_data[] = array(
+					'name'     => $pavblog_blog['title'],
+					'href'     => $this->url->link('pavblog/blog', 'path=' . $pavblog_blog['category_id'])	
+				);					
+			}
+			
+			$this->data['pavblog_categories'][] = array(
+				'name'     => $pavblog_data_category['title'],
+				'pavblog_blog' => $pavblog_blog_data,
+				'href'     => $this->url->link('pavblog/category', 'path=' . $pavblog_data_category['category_id'])
+			);
+		}    
+    
 		$this->data['special'] = $this->url->link('product/special');
 		$this->data['account'] = $this->url->link('account/account', '', 'SSL');
-    	$this->data['edit'] = $this->url->link('account/edit', '', 'SSL');
-    	$this->data['password'] = $this->url->link('account/password', '', 'SSL');
-    	$this->data['address'] = $this->url->link('account/address', '', 'SSL');
-    	$this->data['history'] = $this->url->link('account/order', '', 'SSL');
-    	$this->data['download'] = $this->url->link('account/download', '', 'SSL');
-    	$this->data['cart'] = $this->url->link('checkout/cart');
-    	$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
-    	$this->data['search'] = $this->url->link('product/search');
-    	$this->data['contact'] = $this->url->link('information/contact');
+    $this->data['edit'] = $this->url->link('account/edit', '', 'SSL');
+    $this->data['password'] = $this->url->link('account/password', '', 'SSL');
+    $this->data['address'] = $this->url->link('account/address', '', 'SSL');
+    $this->data['history'] = $this->url->link('account/order', '', 'SSL');
+    $this->data['download'] = $this->url->link('account/download', '', 'SSL');
+    $this->data['cart'] = $this->url->link('checkout/cart');
+    $this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
+    $this->data['search'] = $this->url->link('product/search');
+    $this->data['contact'] = $this->url->link('information/contact');
 		
 		$this->load->model('catalog/information');
 		
