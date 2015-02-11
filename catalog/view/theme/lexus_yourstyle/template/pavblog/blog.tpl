@@ -10,7 +10,9 @@ $productConfig=array('product_enablezoom'=>1,'product_zoommode'=>'basic','produc
       <?php echo $content_top; ?> 
       <h2><?php echo $heading_title; ?></h2>
       <div class="pav-blog">
+        <!--noindex-->
          <div class="blog-meta"> <?php if( $config->get('blog_show_author') ) { ?> <span class="author"><span><?php echo $this->language->get("text_write_by");?></span> <?php echo $blog['author'];?></span> <?php } ?> <?php if( $config->get('blog_show_category') ) { ?> <span class="publishin"> <span><?php echo $this->language->get("text_published_in");?></span> <a href="<?php echo $blog['category_link'];?>" title="<?php echo $blog['category_title'];?>"><?php echo $blog['category_title'];?></a> </span> <?php } ?> <?php if( $config->get('blog_show_created') ) { ?> <span class="created"><span><?php echo $this->language->get("text_created_date");?> <?php echo $blog['created'];?></span></span> <?php } ?> <?php if( $config->get('blog_show_hits') ) { ?> <span class="hits"><span><?php echo $this->language->get("text_hits");?></span> <?php echo $blog['hits'];?></span> <?php } ?> <?php if( $config->get('blog_show_comment_counter') ) { ?> <span class="comment_count"><span><?php echo $this->language->get("text_comment_count");?></span> <?php echo $blog['comment_count'];?></span> <?php } ?> </div>
+         <!--/noindex-->
          <?php if( $blog['thumb_large'] ) { ?> 
          <div class="image"> <img alt="<?php echo $blog['title'];?>" src="<?php echo $blog['thumb_large'];?>" title="<?php echo $blog['title'];?>"> </div>
          <?php } ?> 
