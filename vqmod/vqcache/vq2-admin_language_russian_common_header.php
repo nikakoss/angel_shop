@@ -25,7 +25,7 @@ $_['text_download']                    = 'Загрузки';
 $_['text_error_log']                   = 'Журнал ошибок';
 $_['text_extension']                   = 'Дополнения';
 $_['text_feed']                        = 'Каналы продвижения';
-$_['text_filter']                      = 'Фильтры';
+$_['text_filter']                      = 'Теги';
 $_['text_front']                       = 'Магазин';
 $_['text_geo_zone']                    = 'Географические зоны';
 $_['text_help']                        = 'Помощь';
@@ -97,6 +97,7 @@ $_['text_zone']                        = 'Регионы';
 $_['text_octeam']                      = 'OC Team';
 $_['text_octeam_toolset']              = 'Инструменты';
 
+$_['text_report_adv_customer_order']		= 'ADV Orders';
 
           $_['text_newssubscribe']     = 'Newsletter Subscribers';
             

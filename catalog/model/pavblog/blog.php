@@ -117,6 +117,10 @@ class ModelPavblogBlog extends Model {
 			$sql .= " AND b.category_id=".(int)$data['filter_category_id'];
 		}
 		
+		if( isset($data['filter_parent_category_id']) && $data['filter_parent_category_id'] ){
+			$sql .= " AND c.parent_id=".(int)$data['filter_parent_category_id'];
+		}
+		
 		
 		if( isset($data['filter_tag']) && $data['filter_tag'] ){
 			$tmp = explode (",",$data['filter_tag'] );

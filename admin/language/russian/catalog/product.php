@@ -73,7 +73,7 @@ $_['entry_status']           = 'Статус:';
 $_['entry_sort_order']       = 'Порядок сортировки:';
 
 $_['entry_category']         = 'Показывать в категориях:';
-$_['entry_filter']           = 'Фильтры:<br /><span class="help">(Автодополнение)</span>';
+$_['entry_filter']           = 'Теги:<br /><span class="help">(Автодополнение)</span>';
 
 $_['entry_download']         = 'Загрузки:<br /><span class="help">(Автодополнение)</span>';
 $_['entry_related']          = 'Сопутствующие товары:<br /><span class="help">(Автодополнение)</span>';

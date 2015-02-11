@@ -21,7 +21,7 @@ class ControllerInformationSitemap extends Controller {
         'separator' => $this->language->get('text_separator')
       );	
 		
-    $this->data['heading_title'] = $this->language->get('heading_title');
+    	$this->data['heading_title'] = $this->language->get('heading_title');
 
 		$this->data['text_special'] = $this->language->get('text_special');
 		$this->data['text_account'] = $this->language->get('text_account');
@@ -51,20 +51,41 @@ class ControllerInformationSitemap extends Controller {
 			foreach ($categories_2 as $category_2) {
 				$level_3_data = array();
 				
+				$data_level2 = array(
+									'filter_category_id'  => $category_2['category_id'],
+									'filter_sub_category' => true
+				);
+				$total_level2 = (int)$this->model_catalog_product->getTotalProducts($data_level2);
+				if($total_level2>0){ // total product level 2
+				
 				$categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
 				
 				foreach ($categories_3 as $category_3) {
-					$level_3_data[] = array(
-						'name' => $category_3['name'],
-						'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'])
+					
+					$data_level3 = array(
+									'filter_category_id'  => $category_3['category_id'],
+									'filter_sub_category' => true
 					);
+					$total_level3 = (int)$this->model_catalog_product->getTotalProducts($data_level3);
+					if($total_level3>0){
+						$total_level3 = (int)$this->model_catalog_product->getTotalProducts($data_level2);
+				
+						$level_3_data[] = array(
+							'name' => $category_3['name'],
+							'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'])
+						);
+					} // level 3
 				}
 				
 				$level_2_data[] = array(
 					'name'     => $category_2['name'],
 					'children' => $level_3_data,
 					'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'])	
-				);					
+				);
+				
+				} //end total product level 2
+				
+				
 			}
 			
 			$this->data['categories'][] = array(
@@ -73,44 +94,49 @@ class ControllerInformationSitemap extends Controller {
 				'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
 			);
 		}
-
-		$this->load->model('pavblog/blog');
-		$this->load->model('pavblog/category');
 		
-		$this->data['pavblog_categories'] = array();
-					
-		$pavblog_data_categories = $this->model_pavblog_category->getChild(1);
 		
-		foreach ($pavblog_data_categories as $pavblog_data_category) {
-			$pavblog_blog_data = array();
-			$data_blog['filter_category_id'] = $pavblog_data_category['category_id'];
-			$pavblog_blogs = $this->model_pavblog_blog->getListBlogs($data_blog);
-			
-			foreach ($pavblog_blogs as $pavblog_blog) {
-				$pavblog_blog_data[] = array(
-					'name'     => $pavblog_blog['title'],
-					'href'     => $this->url->link('pavblog/blog', 'path=' . $pavblog_blog['category_id'])	
-				);					
+		 //start blogs sitemap
+			$blogs_map=array();
+			$sql="SELECT c.category_id,cd.title from oc_pavblog_category c,oc_pavblog_category_description cd WHERE  c.category_id=cd.category_id and cd.language_id=1 and c.parent_id=1";
+			$blogs = $this->db->query( $sql )->rows;
+			foreach($blogs as $blog){
+				
+				$blog_level_2=array();				
+				$blog_pages = $this->db->query(" select b.blog_id,bd.title from oc_pavblog_blog b,oc_pavblog_blog_description bd WHERE b.blog_id=bd.blog_id and bd.language_id=1 and b.category_id=".$blog['category_id'])->rows;
+				
+				foreach($blog_pages as $blog_page){
+					$blog_level_2[]=array(
+					'href'=>$this->url->link('pavblog/blog', 'pavblog/blog=' .  $blog_page['blog_id']),
+					'name'=>$blog_page['title']
+					);
+				}				
+				$blogs_map[]=array(
+				'href'=>$this->url->link( 'pavblog/category', "pavblog/category=".$blog['category_id'] ),
+				'name'=>$blog['title'],
+				'children'=>$blog_level_2
+				);
+				
 			}
-			
-			$this->data['pavblog_categories'][] = array(
-				'name'     => $pavblog_data_category['title'],
-				'pavblog_blog' => $pavblog_blog_data,
-				'href'     => $this->url->link('pavblog/category', 'path=' . $pavblog_data_category['category_id'])
-			);
-		}    
-    
+		
+		$this->data['blogs_map'][]=array(
+			'href'=>$this->url->link('common/home').'blogs',
+			'name'=>'Блог',
+			'children'=>$blogs_map
+		);
+		// end blogs sitemap	
+		
 		$this->data['special'] = $this->url->link('product/special');
 		$this->data['account'] = $this->url->link('account/account', '', 'SSL');
-    $this->data['edit'] = $this->url->link('account/edit', '', 'SSL');
-    $this->data['password'] = $this->url->link('account/password', '', 'SSL');
-    $this->data['address'] = $this->url->link('account/address', '', 'SSL');
-    $this->data['history'] = $this->url->link('account/order', '', 'SSL');
-    $this->data['download'] = $this->url->link('account/download', '', 'SSL');
-    $this->data['cart'] = $this->url->link('checkout/cart');
-    $this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
-    $this->data['search'] = $this->url->link('product/search');
-    $this->data['contact'] = $this->url->link('information/contact');
+    	$this->data['edit'] = $this->url->link('account/edit', '', 'SSL');
+    	$this->data['password'] = $this->url->link('account/password', '', 'SSL');
+    	$this->data['address'] = $this->url->link('account/address', '', 'SSL');
+    	$this->data['history'] = $this->url->link('account/order', '', 'SSL');
+    	$this->data['download'] = $this->url->link('account/download', '', 'SSL');
+    	$this->data['cart'] = $this->url->link('checkout/cart');
+    	$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
+    	$this->data['search'] = $this->url->link('product/search');
+    	$this->data['contact'] = $this->url->link('information/contact');
 		
 		$this->load->model('catalog/information');
 		
@@ -139,6 +165,10 @@ class ControllerInformationSitemap extends Controller {
 		);
 				
  		$this->response->setOutput($this->render());		
+	}
+	
+	public function getModel($model='category'){
+			return $this->{"model_pavblog_{$model}"};
 	}
 }
 ?>

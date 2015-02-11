@@ -1,0 +1,15 @@
+---------- Date: 2015-02-03 21:13:04 ~ IP : 188.163.76.55 ----------
+REQUEST URI : /muzhchinam/muzhskaya-odezhda/futbolki/brands/futbolka-class-cavalli-class-cavalli-futbolki-5
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/vqmm_pav_blogs_menu_shortcut.xml
+   id        : VQMod Pavo Blogs Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : pavothemes.com
+
+File Name    : catalog/language/*/common/header.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $_['text_home']           = 'Home';
+
+----------------------------------------------------------------------
+
+

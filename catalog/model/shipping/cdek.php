@@ -173,7 +173,14 @@ class ModelShippingCdek extends Model {
 		} else {
 			$to_data = $this->db->query("SELECT name FROM " . DB_PREFIX . "zone WHERE zone_id = '" . (int)$address['zone_id'] . "' LIMIT 1")->row;
 		}
-		
+		/*
+		if(isset($_COOKIE['debug'])){
+		echo "<pre>";
+			var_dump($address);
+			var_dump($to_data);
+			exit;
+		}*/
+		//$address['city']='Астрахань';
 		if ($to_data && $address['city']) {
 			
 			$regions = array();

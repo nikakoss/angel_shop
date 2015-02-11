@@ -21,7 +21,7 @@ $_['entry_meta_description'] = 'Мета-тег Description:';
 $_['entry_description']      = 'Описание:';
 
 $_['entry_parent']           = 'Родительская категория:';
-$_['entry_filter']           = 'Фильтры:<br /><span class="help">(Автодополнение)</span>';
+$_['entry_filter']           = 'Теги:<br /><span class="help">(Автодополнение)</span>';
 $_['entry_store']            = 'Магазины:';
 $_['entry_keyword']          = 'SEO URL:<br/><span class="help">Должно быть уникальным на всю систему.</span>';
 $_['entry_image']            = 'Изображение категории:';

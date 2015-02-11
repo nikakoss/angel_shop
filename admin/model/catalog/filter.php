@@ -11,18 +11,25 @@ class ModelCatalogFilter extends Model {
 
 		if (isset($data['filter'])) {
 			foreach ($data['filter'] as $filter) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "filter SET filter_group_id = '" . (int)$filter_group_id . "', sort_order = '" . (int)$filter['sort_order'] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "filter SET filter_group_id = '" . (int)$filter_group_id . "', sort_order = '" . (int)$filter['sort_order'] . "',seo = '" . $this->db->escape($filter['seo']) . "'");
 				
 				$filter_id = $this->db->getLastId();
+				
+				$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'tags_id=" . (int)$filter_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'tags_id=" . (int)$filter_id. "', keyword = '" . $this->db->escape($filter['seo']) . "'");
 				
 				foreach ($filter['filter_description'] as $language_id => $filter_description) {
 					$this->db->query("INSERT INTO " . DB_PREFIX . "filter_description SET filter_id = '" . (int)$filter_id . "', language_id = '" . (int)$language_id . "', filter_group_id = '" . (int)$filter_group_id . "', name = '" . $this->db->escape($filter_description['name']) . "'");
 				}
 			}
-		}		
+		}
+			$this->cache->delete('seo_pro');
 	}
 	
 	public function editFilter($filter_group_id, $data) {
+	
+		
+	
 		$this->db->query("UPDATE `" . DB_PREFIX . "filter_group` SET sort_order = '" . (int)$data['sort_order'] . "' WHERE filter_group_id = '" . (int)$filter_group_id . "'");
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "filter_group_description WHERE filter_group_id = '" . (int)$filter_group_id . "'");
@@ -37,18 +44,24 @@ class ModelCatalogFilter extends Model {
 		if (isset($data['filter'])) {
 			foreach ($data['filter'] as $filter) {
 				if ($filter['filter_id']) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "filter SET filter_id = '" . (int)$filter['filter_id'] . "', filter_group_id = '" . (int)$filter_group_id . "', sort_order = '" . (int)$filter['sort_order'] . "'");
+					$this->db->query("INSERT INTO " . DB_PREFIX . "filter SET filter_id = '" . (int)$filter['filter_id'] . "', filter_group_id = '" . (int)$filter_group_id . "', sort_order = '" . (int)$filter['sort_order'] . "',seo = '" . $this->db->escape($filter['seo']) . "'");
 				} else {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "filter SET filter_group_id = '" . (int)$filter_group_id . "', sort_order = '" . (int)$filter['sort_order'] . "'");
-				}
+					$this->db->query("INSERT INTO " . DB_PREFIX . "filter SET filter_group_id = '" . (int)$filter_group_id . "', sort_order = '" . (int)$filter['sort_order'] . "',seo = '" . $this->db->escape($filter['seo']) . "'");
+				}				
 				
 				$filter_id = $this->db->getLastId();
 				
+				
+		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'tags_id=" . (int)$filter_id . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'tags_id=" . (int)$filter_id. "', keyword = '" . $this->db->escape($filter['seo']) . "'");
+		
+		
 				foreach ($filter['filter_description'] as $language_id => $filter_description) {
 					$this->db->query("INSERT INTO " . DB_PREFIX . "filter_description SET filter_id = '" . (int)$filter_id . "', language_id = '" . (int)$language_id . "', filter_group_id = '" . (int)$filter_group_id . "', name = '" . $this->db->escape($filter_description['name']) . "'");
 				}
 			}
-		}		
+		}
+		$this->cache->delete('seo_pro');		
 	}
 	
 	public function deleteFilter($filter_group_id) {
@@ -162,7 +175,8 @@ class ModelCatalogFilter extends Model {
 			$filter_data[] = array(
 				'filter_id'          => $filter['filter_id'],
 				'filter_description' => $filter_description_data,
-				'sort_order'         => $filter['sort_order']
+				'sort_order'         => $filter['sort_order'],
+				'seo'         => $filter['seo']
 			);
 		}
 		

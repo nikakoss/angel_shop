@@ -25,7 +25,8 @@
               <span class="error"><?php echo $error_name[$language['language_id']]; ?></span><br />
               <?php } ?>
               <?php } ?></td>
-          </tr>		  
+          </tr>
+		  
           <tr>
             <td><?php echo $entry_sort_order; ?></td>
             <td><input type="text" name="sort_order" value="<?php echo $sort_order; ?>" size="1" /></td>
@@ -35,6 +36,7 @@
           <thead>
             <tr>
               <td class="left"><span class="required">*</span> <?php echo $entry_name ?></td>
+              <td class="right">SEO</td>
               <td class="right"><?php echo $entry_sort_order; ?></td>
               <td></td>
             </tr>
@@ -51,6 +53,9 @@
                 <span class="error"><?php echo $error_filter[$filter_row][$language['language_id']]; ?></span>
                 <?php } ?>
                 <?php } ?></td>
+				
+              <td class="right"><input type="text" name="filter[<?php echo $filter_row; ?>][seo]" value="<?php echo $filter['seo']; ?>" size="20" /></td>
+			  
               <td class="right"><input type="text" name="filter[<?php echo $filter_row; ?>][sort_order]" value="<?php echo $filter['sort_order']; ?>" size="1" /></td>
               <td class="left"><a onclick="$('#filter-row<?php echo $filter_row; ?>').remove();" class="button"><?php echo $button_remove; ?></a></td>
             </tr>
@@ -59,7 +64,7 @@
           <?php } ?>
           <tfoot>
             <tr>
-              <td colspan="2"></td>
+              <td colspan="3"></td>
               <td class="left"><a onclick="addFilter();" class="button"><?php echo $button_add_filter; ?></a></td>
             </tr>
           </tfoot>
@@ -79,6 +84,7 @@ function addFilter() {
 	html += '    <input type="text" name="filter[' + filter_row + '][filter_description][<?php echo $language['language_id']; ?>][name]" value="" /> <img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /><br />';
     <?php } ?>
 	html += '    </td>';
+	html += '    <td class="right"><input type="text" name="filter[' + filter_row + '][seo]" value="" size="20" /></td>';
 	html += '    <td class="right"><input type="text" name="filter[' + filter_row + '][sort_order]" value="" size="1" /></td>';
 	html += '     <td class="left"><a onclick="$(\'#filter-row' + filter_row + '\').remove();" class="button"><?php echo $button_remove; ?></a></td>';
 	html += '  </tr>';	

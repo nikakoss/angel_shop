@@ -63,6 +63,16 @@ class ControllerCheckoutSimpleCheckout extends Controller {
             
             $this->data['agree_warning'] = '';
             
+			// fix no shipping address module CDEK 
+				if(isset($this->request->post['checkout_customer'])){
+				$this->request->post['checkout_address']['address_id']=$this->request->post['checkout_customer']['address_id'];
+				$this->request->post['checkout_address']['main_country_id']=$this->request->post['checkout_customer']['main_country_id'];
+				$this->request->post['checkout_address']['main_zone_id']=$this->request->post['checkout_customer']['main_zone_id'];
+				$this->request->post['checkout_address']['main_city']=$this->request->post['checkout_customer']['main_city'];
+				$this->request->post['checkout_address']['main_address_1']=$this->request->post['checkout_customer']['main_address_1'];
+				}
+			// fix no shipping address module CDEK
+			
             if ($this->config->get('simple_common_view_agreement_id')) {
                 $this->load->model('catalog/information');
                 

@@ -52,7 +52,7 @@ $_['button_add_banner']       = 'Добавить баннер';
 $_['button_add_custom_field_value'] = 'Добавить поле ввода';
 $_['button_add_product']      = 'Добавить товар';
 $_['button_add_voucher']      = 'Добавить подарочный сертификат';
-$_['button_add_filter']       = 'Добавить фильтр';
+$_['button_add_filter']       = 'Добавить теги';
 $_['button_add_option']       = 'Добавить опцию';
 $_['button_add_option_value'] = 'Добавить значение опции';
 $_['button_add_discount']     = 'Добавить скидку';
@@ -70,7 +70,7 @@ $_['button_add_link']         = 'Добавить ссылку';
 $_['button_update_total']     = 'Обновить "Итого"';
 $_['button_approve']          = 'Активировать';
 $_['button_reset']            = 'Сброс';
-$_['button_filter']           = 'Фильтр';
+$_['button_filter']           = 'Теги';
 
 // Tab
 $_['tab_address']             = 'Адрес';

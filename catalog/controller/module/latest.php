@@ -11,6 +11,10 @@ class ControllerModuleLatest extends Controller {
 		
 		$this->load->model('tool/image');
 		
+		$this->data['button_cart'] = $this->language->get('button_cart');
+                        $this->data['button_wishlist'] = $this->language->get('button_wishlist');
+                        $this->data['button_compare'] = $this->language->get('button_compare');
+		
 		$this->data['products'] = array();
 		
 		$data = array(

@@ -80,12 +80,18 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_report_product_purchased'] = $this->language->get('text_report_product_purchased');
 		$this->data['text_report_customer_online'] = $this->language->get('text_report_customer_online');
 		$this->data['text_report_customer_order'] = $this->language->get('text_report_customer_order');
+
+$this->data['text_report_adv_customer_order'] = $this->language->get('text_report_adv_customer_order');
+            
 		$this->data['text_report_customer_reward'] = $this->language->get('text_report_customer_reward');
 		$this->data['text_report_customer_credit'] = $this->language->get('text_report_customer_credit');
 		$this->data['text_report_affiliate_commission'] = $this->language->get('text_report_affiliate_commission');
 		$this->data['text_report_sale_return'] = $this->language->get('text_report_sale_return');
 		$this->data['text_report_product_viewed'] = $this->language->get('text_report_product_viewed');
 		$this->data['text_report_customer_order'] = $this->language->get('text_report_customer_order');
+
+$this->data['text_report_adv_customer_order'] = $this->language->get('text_report_adv_customer_order');
+            
 		$this->data['text_review'] = $this->language->get('text_review');
 		$this->data['text_return'] = $this->language->get('text_return');
 		$this->data['text_return_action'] = $this->language->get('text_return_action');
@@ -184,6 +190,9 @@ class ControllerCommonHeader extends Controller {
 			$this->data['report_product_purchased'] = $this->url->link('report/product_purchased', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['report_customer_online'] = $this->url->link('report/customer_online', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['report_customer_order'] = $this->url->link('report/customer_order', 'token=' . $this->session->data['token'], 'SSL');
+
+$this->data['report_adv_customer_order'] = $this->url->link('report/adv_customer_order', 'token=' . $this->session->data['token'], 'SSL'); 
+            
 			$this->data['report_customer_reward'] = $this->url->link('report/customer_reward', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['report_customer_credit'] = $this->url->link('report/customer_credit', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['report_affiliate_commission'] = $this->url->link('report/affiliate_commission', 'token=' . $this->session->data['token'], 'SSL');

@@ -117,13 +117,14 @@ class ModelCatalogProduct extends Model {
                 }
                                                 
                 if ($data['keyword']) {
-                        $this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+                  $this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
                 }
-                                                
+                
                 if($this->config->get('seogen_status')) {
-                        $this->load->model('module/seogen');
-                        $this->model_module_seogen->urlifyProduct($product_id);
+                  $this->load->model('module/seogen');
+                  $this->model_module_seogen->urlifyProduct($product_id);
                 }
+                
 
 			
 			
@@ -280,13 +281,13 @@ class ModelCatalogProduct extends Model {
                 $this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'product_id=" . (int)$product_id. "'");
                 
                 if ($data['keyword']) {
-                        $this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+                  $this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
                 }
 
                 if($this->config->get('seogen_status')) {
-                        $this->load->model('module/seogen');
-                        $this->model_module_seogen->urlifyProduct($product_id);
-                }
+                  $this->load->model('module/seogen');
+                  $this->model_module_seogen->urlifyProduct($product_id);
+                } 
                 
 
 			
@@ -546,18 +547,6 @@ class ModelCatalogProduct extends Model {
                 $product_filter_data = array();
                 
                 $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_filter WHERE product_id = '" . (int)$product_id . "'");
-                
-                foreach ($query->rows as $result) {
-                        $product_filter_data[] = $result['filter_id'];
-                }
-                                
-                return $product_filter_data;
-        }
-		
-		public function getPavBlogProductFilters($product_id) {
-                $product_filter_data = array();
-                
-                $query = $this->db->query("SELECT * FROM oc_pavblog_product_filter WHERE product_id = '" . (int)$product_id . "'");
                 
                 foreach ($query->rows as $result) {
                         $product_filter_data[] = $result['filter_id'];

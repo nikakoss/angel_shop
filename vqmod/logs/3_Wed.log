@@ -1,0 +1,15 @@
+---------- Date: 2015-02-04 02:14:51 ~ IP : 188.230.67.52 ----------
+REQUEST URI : /
+MOD DETAILS:
+   modFile   : /home/a/angelmoda/angelmoda/public_html/vqmod/xml/vqmm_pav_blogs_menu_shortcut.xml
+   id        : VQMod Pavo Blogs Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : pavothemes.com
+
+File Name    : catalog/language/*/common/header.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $_['text_home']           = 'Home';
+
+----------------------------------------------------------------------
+
+
