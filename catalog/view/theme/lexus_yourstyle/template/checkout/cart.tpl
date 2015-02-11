@@ -148,7 +148,7 @@
                <div class="cart-total clearfix">
                   <table id="total">
                      <?php foreach ($totals as $total) { ?> 
-                     <tr>
+                     <tr class="total_<?php echo $total['code']; ?>">
                         <td class="right"><b><?php echo $total['title']; ?>:</b></td>
                         <td class="right pull-right"><?php echo $total['text']; ?></td>
                      </tr>

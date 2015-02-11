@@ -72,23 +72,19 @@
         $class = $helper->calculateSpans( $ospans, $cols );
         ?> <div class="footer-bottom"> <div class="container"> <?php $j=1;foreach ($modules as $i =>  $module) {  ?> <?php if( $i++%$cols == 0 || count($modules)==1 ){  $j=1;?><div class="row"><?php } ?> <div class="<?php echo $class[$j];?>"><?php echo $module; ?></div> <?php if( $i%$cols == 0 || $i==count($modules) ){ ?></div><?php } ?> <?php  $j++;  } ?> </div> </div> <?php } ?> 
         <div id="powered"> <div class="container"> <div class="copyright pull-left"> <?php if( isset($themeConfig['enable_custom_copyright']) && $themeConfig['enable_custom_copyright'] ) { ?> <?php echo $themeConfig['copyright'];?> <?php } else { ?> <?php echo $powered; ?>. <?php } ?> </div> <?php if( isset($themeConfig['widget_paypal_data'][$LANGUAGE_ID]) ) {?> <div class="paypal pull-right"> <?php echo html_entity_decode( $themeConfig['widget_paypal_data'][$LANGUAGE_ID], ENT_QUOTES, 'UTF-8' ); ?>
-        
-        <!--LiveInternet counter-->
-        <div style="display: none">
-        <script type="text/javascript"><!--
-        document.write("<a href='//www.liveinternet.ru/click' "+
-        "target=_blank><img src='//counter.yadro.ru/hit?t14.5;r"+
-        escape(document.referrer)+((typeof(screen)=="undefined")?"":
-        ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-        screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-        ";"+Math.random()+
-        "' alt='' title='LiveInternet: показано число просмотров за 24"+
-        " часа, посетителей за 24 часа и за сегодня' "+
-        "border='0' width='88' height='31'><\/a>")
-        //--></script>
-        </div>
-        <!--/LiveInternet-->
-                                       
+<!--LiveInternet counter-->
+<script type="text/javascript"><!--
+document.write("<a href='//www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t14.5;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров за 24"+
+" часа, посетителей за 24 часа и за сегодня' "+
+"border='0' width='88' height='31'><\/a>")
+//--></script>
+<!--/LiveInternet-->                                        
 <!-- Yandex.Metrika informer -->
 <!--a href="https://metrika.yandex.ru/stat/?id=25187354&amp;from=informer"
 target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/25187354/3_0_666471FF_464451FF_1_pageviews"

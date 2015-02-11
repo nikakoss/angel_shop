@@ -552,7 +552,11 @@
 .simplecheckout-customer-right label input {
     margin-right:3px;
 }
+.simplecheckout-block-content label[for='free.free']{
+	display:none!important;
+}
 .simplecheckout label, .simpleregister label {
+  /*  display: inline-block !important;*/
     display: inline-block !important;
     margin: 0;
 }
@@ -611,3 +615,4 @@
 .simplecheckout-summary-info td {
     text-align: left;
 }
+#total_1{ display:none;}
