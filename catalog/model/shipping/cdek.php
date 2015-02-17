@@ -643,7 +643,7 @@ class ModelShippingCdek extends Model {
 									if ($this->config->get('cdek_show_pvz')) {
 										
 										foreach ($pvz_list as $pvz_address) {
-											$names[] = $description . ' Пункт выдачи заказов: ' . $pvz_address;
+											$names[] = $description . ' <span class="pvz_address">Пункт выдачи заказов: </span>' . $pvz_address;
 										}
 										
 									} else {
@@ -783,7 +783,7 @@ class ModelShippingCdek extends Model {
 					
 				}
 				
-				$pvz_address = 'г. ' . $pvz_info['City'] . ', ' . $this->mb_ucfirst($pvz_info['Address']) . '.';
+				$pvz_address = '<span class="pvz_address">г. ' . $pvz_info['City'] . ', ' . $this->mb_ucfirst($pvz_info['Address']) . '.';
 									
 				if (!empty($pvz_info['WorkTime']) && trim($pvz_info['WorkTime']) != '-') {
 					$pvz_address .= ' Режим работы: ' . $pvz_info['WorkTime'] . '.';
@@ -801,7 +801,7 @@ class ModelShippingCdek extends Model {
 			}
 			
 			if ($this->config->get('cdek_pvz_more_one') == 'merge') {
-				$pvz_list = array(implode('; ', $pvz_list));
+				$pvz_list = array(implode('; </span>', $pvz_list));
 			}
 			
 		} elseif (!empty($pvz_list_data['ErrorCode'])) {
